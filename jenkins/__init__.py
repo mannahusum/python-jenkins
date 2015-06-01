@@ -832,7 +832,7 @@ class Jenkins(object):
         '''Get build console text.
 
         :param name: Job name, ``str``
-        :param name: Build number, ``int``
+        :param number: Build number, ``int``
         :returns: Build console output,  ``str``
         '''
         try:
