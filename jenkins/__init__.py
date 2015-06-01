@@ -307,7 +307,7 @@ class Jenkins(object):
         '''Get build information dictionary.
 
         :param name: Job name, ``str``
-        :param name: Build number, ``int``
+        :param number: Build number, ``int``
         :param depth: JSON depth, ``int``
         :returns: dictionary of build information, ``dict``
 
@@ -408,7 +408,7 @@ class Jenkins(object):
 
         """
         try:
-            request = Request(self.server)
+            request = Request(self.server + "/login")
             request.add_header('X-Jenkins', '0.0')
             response = urlopen(request, timeout=self.timeout)
             if response is None:
@@ -463,7 +463,7 @@ class Jenkins(object):
     def get_plugin_info(self, name, depth=2):
         """Get an installed plugin information on this Master.
 
-        This method retrieves information about a speicifc plugin.
+        This method retrieves information about a specifc plugin.
         The passed in plugin name (short or long) must be an exact match.
 
         :param name: Name (short or long) of plugin, ``str``
